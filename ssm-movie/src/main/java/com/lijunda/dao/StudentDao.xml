@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lijunda.dao.StudentDao">
+    <!--配置查询-->
+    <select id="selectAllStudentMessageById" resultType="com.lijunda.domain.Student">
+        select * from student where id=#{id}
+    </select>
+
+    <select id="selectStudent" resultType="com.lijunda.domain.Student">
+        select * from student order by id
+    </select>
+    <select id="selectStudentId" resultType="com.lijunda.domain.Student">
+        select id from student order by id
+    </select>
+    <select id="selectStudentIdAndPassWord" resultType="com.lijunda.domain.Student">
+        select id,password from student order by id
+    </select>
+
+
+    <insert id="insertStudent" >
+        insert into student(id,password,name,age,gender,email) values(#{id},#{password},#{name},#{age},#{gender},#{email})
+    </insert>
+
+    <update id="updateStudentById">
+        update student
+        set password=#{password},
+            name = #{name},
+            age = #{age},
+            gender = #{gender},
+            email = #{email}
+        where id=#{id}
+    </update>
+
+    <select id="queryCollectionByStudentId" resultType="com.lijunda.domain.Collection">
+        select * from collection where studentId = #{studentId}
+    </select>
+</mapper>
+
+

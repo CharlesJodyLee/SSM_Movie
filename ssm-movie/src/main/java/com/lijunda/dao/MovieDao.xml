@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lijunda.dao.MovieDao">
+    <select id="selectOneMovieByName" resultType="com.lijunda.domain.Movie">
+        select  * from movie where movieName=#{movieName}
+    </select>
+
+    <select id="selectAllMovieId" resultType="com.lijunda.domain.Movie">
+        select  movieId from movie
+    </select>
+
+    <select id="selectMaxHot" resultType="com.lijunda.domain.Movie">
+        select isHot from movie
+    </select>
+
+    <select id="selectMaxNew" resultType="com.lijunda.domain.Movie">
+        select isNew from movie
+    </select>
+
+    <select id="selectAllMovie" resultType="com.lijunda.domain.Movie">
+        select * from movie order by movieId
+    </select>
+
+    <select id="selectMovieOrderByMovieTimeDesc" resultType="com.lijunda.domain.Movie">
+        select *
+        from movie order by movieTime desc
+    </select>
+
+    <insert id="addMovie" >
+        insert into movie(movieId,movieName,movieOtherName,movieTime,
+                          moviePicture,movieType,movieCountry,movieDirector,
+                          movieLength,movieIntroduce)
+        values(#{movieId},#{movieName},#{movieOtherName},#{movieTime},#{moviePicture},
+               #{movieType},#{movieCountry},#{movieDirector},#{movieLength},#{movieIntroduce})
+    </insert>
+
+    <select id="selectAllCommentByMovieId" resultType="com.lijunda.domain.Comment">
+        select * from comment where movieId = #{movieId}
+    </select>
+
+    <insert id="addComment" >
+        insert into comment(movieId,studentId,commentTime,commentContent)
+        values(#{movieId},#{studentId},#{commentTime},#{commentContent})
+    </insert>
+
+    <insert id="addCollection" >
+        insert into collection(movieId,studentId)
+        values(#{movieId},#{studentId})
+    </insert>
+
+    <delete id="subCollection" >
+        delete from collection
+        where movieId=#{movieId} and studentId = #{studentId}
+    </delete>
+
+    <select id="selectAllCollectionByStudentId" resultType="com.lijunda.domain.Collection">
+        select * from collection where studentId = #{studentId}
+    </select>
+
+    <select id="queryFiveHot" resultType="com.lijunda.domain.Movie">
+        select * from movie order by isHot desc limit 5
+    </select>
+
+    <select id="queryAllMovieType" resultType="com.lijunda.domain.Movie">
+        select distinct movieType from movie
+    </select>
+
+    <select id="queryAllMovieCountry" resultType="com.lijunda.domain.Movie">
+        select distinct movieCountry from movie
+    </select>
+
+    <select id="queryMovieBySort" resultType="com.lijunda.domain.Movie">
+        select * from movie
+        <where>
+            <if test="movieType!='null'">
+                movieType = #{movieType}
+            </if>
+            <if test="movieCountry!='null'">
+                and movieCountry = #{movieCountry}
+            </if>
+            <if test="movieTime!='null'">
+                and movieTime like #{movieTime}"%"
+            </if>
+        </where>
+    </select>
+
+    <select id="queryMovieByMovieId" resultType="com.lijunda.domain.Movie">
+        select * from movie where movieId=#{movieId}
+    </select>
+
+
+</mapper>

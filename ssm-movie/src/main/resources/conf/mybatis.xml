@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    环境配置，数据库的连接信息，里面可以放多个数据库配置
+                    default 必须和下面的 id 值一样
+                    因为他会指定使用下面的哪一个数据库配置的信息-->
+<!--    <settings>-->
+<!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+<!--    </settings>-->
+<!--    <typeAliases>-->
+<!--        <package name="com.lijunda.domain"/>-->
+<!--    </typeAliases>-->
+<!--    <environments default="development">-->
+<!--&lt;!&ndash;        一个数据库信息的配置，环境，-->
+<!--            id是唯一值，代编了这个环境配置的名称&ndash;&gt;-->
+<!--        <environment id="development">-->
+<!--&lt;!&ndash;            transactionManager:mybatis的事务类型-->
+<!--                type：JDBC 表示用JDBC的Connection对象的commit，rollback做事务处理&ndash;&gt;-->
+<!--            <transactionManager type="JDBC"/>-->
+<!--&lt;!&ndash;            dataSource表示数据源，连接数据库的-->
+<!--                    type表示数据源的类型，POOLED表示使用连接池&ndash;&gt;-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="com.mysql.jdbc.Driver"/>-->
+<!--                <property name="url" value="jdbc:mysql://localhost:3306/springdb"/>-->
+<!--                <property name="username" value="root"/>-->
+<!--                <property name="password" value="root"/>-->
+
+<!--&lt;!&ndash;                <property name="driver" value="${driver}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <property name="url" value="${url}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <property name="username" value="${username}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <property name="password" value="${password}"/>&ndash;&gt;-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+
+<!--    sql mapper（sql映射配置文件） 的位置-->
+    <mappers>
+<!--        这里就是dao.xml的位置-->
+<!--        <mapper resource="com/lijunda/dao/StudentDao.xml"/>-->
+<!--        package使用要求1.mapper文件名称和dao接口就必须完全一致
+                          2.mapper文件和dao接口必须在同一目录下
+                            -->
+        <package name="com.lijunda.dao"/>
+    </mappers>
+</configuration>
