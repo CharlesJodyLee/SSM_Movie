@@ -2,7 +2,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:tx="http://www.springframework.org/schema/cache"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -13,6 +12,7 @@
        http://www.springframework.org/schema/cache/spring-cache.xsd
        http://www.springframework.org/schema/aop
        https://www.springframework.org/schema/aop/spring-aop.xsd">
+<!--    xmlns:tx="http://www.springframework.org/schema/cache"-->
 
 <!--  spring配置文件:声明service,dao,工具类等对象  -->
     <context:property-placeholder location="classpath:conf/jdbc.properties" />
