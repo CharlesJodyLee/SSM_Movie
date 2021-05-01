@@ -81,28 +81,28 @@
     </div>
     <%--    隐藏表单--%>
     <form id="hideForm1" action="student/loginStudent.do"  method="post">
-        <input type="text" name="id" value="${studentId}">
-        <input type="text" name="password" value="${studentPassword}">
-        <input type="text" name="name" value="${studentName}">
-        <input type="submit" value="提交">
+        <input type="hidden" name="id" value="${studentId}">
+        <input type="hidden" name="password" value="${studentPassword}">
+        <input type="hidden" name="name" value="${studentName}">
+        <input type="submit" value="提交" style="display:none;">
     </form>
     <form id="hideForm2" action="student/studentCenter.do"  method="post">
-        <input type="text" name="id" value="${studentId}">
-        <input type="text" name="password" value="${studentPassword}">
-        <input type="text" name="name" value="${studentName}">
-        <input type="submit" value="提交">
+        <input type="hidden" name="id" value="${studentId}">
+        <input type="hidden" name="password" value="${studentPassword}">
+        <input type="hidden" name="name" value="${studentName}">
+        <input type="submit" value="提交" style="display:none;">
     </form>
     <form id="hideForm3" action="student/ClassifiedSearch.do"  method="post">
-        <input type="text" name="id" value="${studentId}">
-        <input type="text" name="password" value="${studentPassword}">
-        <input type="text" name="name" value="${studentName}">
-        <input type="submit" value="提交">
+        <input type="hidden" name="id" value="${studentId}">
+        <input type="hidden" name="password" value="${studentPassword}">
+        <input type="hidden" name="name" value="${studentName}">
+        <input type="submit" value="提交" style="display:none;">
     </form>
     <form id="hideForm4" action="student/CollectionPage.do"  method="post">
-        <input type="text" name="id" value="${studentId}">
-        <input type="text" name="password" value="${studentPassword}">
-        <input type="text" name="name" value="${studentName}">
-        <input type="submit" value="提交">
+        <input type="hidden" name="id" value="${studentId}">
+        <input type="hidden" name="password" value="${studentPassword}">
+        <input type="hidden" name="name" value="${studentName}">
+        <input type="submit" value="提交" style="display:none;">
     </form>
     <div id="collectionResult">
         <div align="center"><h1>${tips}</h1></div>

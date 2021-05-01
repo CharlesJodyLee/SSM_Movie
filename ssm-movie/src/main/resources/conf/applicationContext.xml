@@ -2,8 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
@@ -12,7 +11,9 @@
        http://www.springframework.org/schema/cache/spring-cache.xsd
        http://www.springframework.org/schema/aop
        https://www.springframework.org/schema/aop/spring-aop.xsd">
-<!--    xmlns:tx="http://www.springframework.org/schema/cache"-->
+<!--    xmlns:tx="http://www.springframework.org/schema/tx"-->
+<!--    xmlns:aop="http://www.springframework.org/schema/aop"-->
+
 
 <!--  spring配置文件:声明service,dao,工具类等对象  -->
     <context:property-placeholder location="classpath:conf/jdbc.properties" />
@@ -40,19 +41,19 @@
 
 <!--    声明事务管理器-->
 <!--    平台事务管理器-->
-    <bean id="transactionManager"
-          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"></property>
-    </bean>
-<!--    配置事务管理器-->
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="*" />
-        </tx:attributes>
-    </tx:advice>
-<!--    aop切面配置,aop织入-->
-    <aop:config>
-<!--        切点表达式 ：开头*代表任意返回值 后面代表所有类的所有方法任意参数-->
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.lijunda.service.impl.*.*(..))"></aop:advisor>
-    </aop:config>
+<!--    <bean id="transactionManager"-->
+<!--          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+<!--        <property name="dataSource" ref="dataSource"></property>-->
+<!--    </bean>-->
+<!--&lt;!&ndash;    配置事务管理器&ndash;&gt;-->
+<!--    <tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+<!--        <tx:attributes>-->
+<!--            <tx:method name="*" />-->
+<!--        </tx:attributes>-->
+<!--    </tx:advice>-->
+<!--&lt;!&ndash;    aop切面配置,aop织入&ndash;&gt;-->
+<!--    <aop:config>-->
+<!--&lt;!&ndash;        切点表达式 ：开头*代表任意返回值 后面代表所有类的所有方法任意参数&ndash;&gt;-->
+<!--        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.lijunda.service.impl.*.*(..))"></aop:advisor>-->
+<!--    </aop:config>-->
 </beans>
